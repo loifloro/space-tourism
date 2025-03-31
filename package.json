@@ -2,6 +2,7 @@
     "name": "space-tourism",
     "private": true,
     "type": "module",
+    "homepage": "https://loifloro.github.io/space-tourism",
     "scripts": {
         "build": "react-router build",
         "dev": "react-router dev",
