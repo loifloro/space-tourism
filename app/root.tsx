@@ -13,7 +13,7 @@ import "./app.css";
 export const links: Route.LinksFunction = () => [
     {
         rel: "icon",
-        href: "/favicon.png",
+        href: "./favicon.png",
         type: "image/png",
     },
     {
@@ -71,7 +71,7 @@ export default function App() {
 }
 
 export function HydrateFallback() {
-    return <>Loading...</>
+    return <>Loading...</>;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
