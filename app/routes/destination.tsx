@@ -13,8 +13,9 @@ export default function Destination() {
             try {
                 setIsLoading(true);
 
-                const destinations = (await axios.get<Data>("./data.json"))
-                    .data["destinations"];
+                const destinations = (await axios.get<Data>("data.json")).data[
+                    "destinations"
+                ];
 
                 setDestinations(destinations);
 

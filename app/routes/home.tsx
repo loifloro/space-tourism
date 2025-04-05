@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <main className="py-4 sm:py-10 min-h-[80vh] grid place-content-center items-center lg:items-end grid-rows-2 lg:grid-rows-1 lg:grid-cols-2">
             <div className="p-6 flex flex-col gap-6 md:max-w-9/12 mx-auto">
-                <h1 className="text-md md:text-[28px] text-blue-300 tracking-widest font-sans-condensed font-bold text-center lg:text-start uppercase">
+                <h1 className="text-md md:text-[28px] text-blue-300 tracking-widest font-sans-condensed text-center lg:text-start uppercase">
                     So, you want to travel to&nbsp;
                 </h1>
                 <span className="text-center lg:text-start uppercase text-[80px] md:text-[144px] block leading-20 md:leading-[165px] font-serif text-white font-normal">
