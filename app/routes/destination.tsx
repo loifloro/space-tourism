@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import PageHeading from "~/components/PageHeading";
 import Skeleton from "react-loading-skeleton";
 
 export default function Destination() {
@@ -36,18 +37,13 @@ export default function Destination() {
         fetchData();
     }, []);
 
-    console.log(selectedDestination, currentDestination);
-
     return (
         <main className="p-6 md:p-10 w-screen grid items-center lg:items-end md:max-w-11/12 mx-auto">
-            <div className="flex justify-center md:justify-start gap-6 mb-6 md:text-xl">
-                <span className="font-bold font-sans-condensed opacity-25 text-white tracking-widest">
-                    01
-                </span>
-                <h1 className="uppercase tracking-widest font-sans-condensed text-white">
-                    Pick your destination
-                </h1>
-            </div>
+            <PageHeading
+                title="Destination"
+                number="01"
+                classname="mb-6 md:text-xl"
+            />
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:max-w-full lg:my-20">
                 <div className="flex flex-1 items-center justify-center my-7 md:my-12 lg:my-4">
                     {currentDestination && !isLoading ? (
