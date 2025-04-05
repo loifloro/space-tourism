@@ -7,8 +7,10 @@ import {
     ScrollRestoration,
 } from "react-router";
 
-import type { Route } from "./+types/root";
 import "./app.css";
+import "react-loading-skeleton/dist/skeleton.css";
+import { SkeletonTheme } from "react-loading-skeleton";
+import type { Route } from "./+types/root";
 
 export const links: Route.LinksFunction = () => [
     {
@@ -67,7 +69,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-    return <Outlet />;
+    return (
+        <SkeletonTheme baseColor="#1B2234" highlightColor="#10141F">
+            <Outlet />
+        </SkeletonTheme>
+    );
 }
 
 export function HydrateFallback() {
