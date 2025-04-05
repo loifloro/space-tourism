@@ -13,7 +13,7 @@ export default function Destination() {
             try {
                 setIsLoading(true);
 
-                const destinations = (await axios.get<Data>("./app/data.json"))
+                const destinations = (await axios.get<Data>("./data.json"))
                     .data["destinations"];
 
                 setDestinations(destinations);
@@ -49,7 +49,7 @@ export default function Destination() {
             </div>
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:max-w-full lg:my-20">
                 <div className="flex flex-1 items-center justify-center my-7 md:my-12 lg:my-4">
-                    {!isLoading ? (
+                    {currentDestination && !isLoading ? (
                         <img
                             src={`./assets/destination/image-${currentDestination?.name.toLowerCase()}.webp`}
                             alt={currentDestination?.description}
