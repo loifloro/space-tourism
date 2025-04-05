@@ -6,11 +6,13 @@ import {
     Scripts,
     ScrollRestoration,
 } from "react-router";
+import { SkeletonTheme } from "react-loading-skeleton";
+import { useState } from "react";
+import SideMenuProvider from "./providers/SideMenuProvider";
+import type { Route } from "./+types/root";
 
 import "./app.css";
 import "react-loading-skeleton/dist/skeleton.css";
-import { SkeletonTheme } from "react-loading-skeleton";
-import type { Route } from "./+types/root";
 
 export const links: Route.LinksFunction = () => [
     {
@@ -48,6 +50,8 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+    const [isOpened, setIsOpened] = useState(false);
+
     return (
         <html lang="en">
             <head>
@@ -59,21 +63,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Meta />
                 <Links />
             </head>
-            <body>
-                {children}
-                <ScrollRestoration />
-                <Scripts />
-            </body>
+            <SkeletonTheme baseColor="#1B2234" highlightColor="#10141F">
+                <SideMenuProvider value={{ isOpened, setIsOpened }}>
+                    <body
+                        className={`${isOpened ? "overflow-hidden" : "overflow-auto"}`}
+                    >
+                        {children}
+                        <ScrollRestoration />
+                        <Scripts />
+                    </body>
+                </SideMenuProvider>
+            </SkeletonTheme>
         </html>
     );
 }
 
 export default function App() {
-    return (
-        <SkeletonTheme baseColor="#1B2234" highlightColor="#10141F">
-            <Outlet />
-        </SkeletonTheme>
-    );
+    return <Outlet />;
 }
 
 export function HydrateFallback() {
