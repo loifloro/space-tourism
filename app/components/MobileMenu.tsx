@@ -1,34 +1,12 @@
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router";
+import { navItems } from "~/lib/constants";
 import { SideMenuContext } from "~/providers/SideMenuProvider";
 import { useContext } from "react";
 
 export default function MobileMenu() {
     const currentPathname = useLocation().pathname;
     const { isOpened, setIsOpened } = useContext(SideMenuContext);
-
-    const navItems = [
-        {
-            name: "Home",
-            link: "/",
-            key: "00",
-        },
-        {
-            name: "Destination",
-            link: "/destination",
-            key: "01",
-        },
-        {
-            name: "Crew",
-            link: "/crew",
-            key: "02",
-        },
-        {
-            name: "Technology",
-            link: "/technology",
-            key: "03",
-        },
-    ];
 
     return createPortal(
         <nav

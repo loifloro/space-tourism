@@ -44,8 +44,8 @@ export default function Destination() {
                 number="01"
                 classname="mb-6 md:text-xl"
             />
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:max-w-full lg:my-20">
-                <div className="flex flex-1 items-center justify-center my-7 md:my-12 lg:my-4">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:max-w-full lg:my-10">
+                <div className="flex flex-1 items-center justify-center lg:justify-stretch my-7 md:my-12 lg:my-4">
                     {currentDestination && !isLoading ? (
                         <img
                             src={`./assets/destination/image-${currentDestination?.name.toLowerCase()}.webp`}

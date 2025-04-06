@@ -5,7 +5,8 @@ import PageHeading from "~/components/PageHeading";
 export default function Technology() {
     const [currentTechnology, setCurrentTechnology] = useState<Technology>();
     const [technologies, setTechnologies] = useState<Technology[]>([]);
-    const [selectedTechnology, setSelectedTechnology] = useState("Spaceport");
+    const [selectedTechnology, setSelectedTechnology] =
+        useState("Launch vehicle");
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -41,10 +42,10 @@ export default function Technology() {
                 number="03"
                 classname="px-6 md:px-10 lg:px-0 md:max-w-11/12"
             />
-            <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-10 mt-16">
+            <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-10 mt-16 lg:mt-10">
                 <picture className="flex-1/2 lg:py-16 lg:max-w-[600px]">
                     <source
-                        media="(min-width: 768px)"
+                        media="(min-width: 769px)"
                         srcSet={`./assets/technology/image-${currentTechnology?.name.toLowerCase().replace(" ", "-")}-portrait.jpg`}
                     />
                     <img

@@ -4,7 +4,7 @@ import Header from "~/components/Header";
 export default function TechnologyLayout() {
     return (
         <div
-            className={`bg-[url('/assets/technology/background-technology-mobile.jpg')] md:bg-[url('/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('/assets/technology/background-technology-desktop.jpg')] bg-cover bg-no-repeat bg-center min-h-screen`}
+            className={`bg-[url('/assets/technology/background-technology-mobile.jpg')] md:bg-[url('/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('/assets/technology/background-technology-desktop.jpg')] bg-cover bg-no-repeat bg-center min-h-screen lg:pt-10`}
         >
             <Header />
             <Outlet />
