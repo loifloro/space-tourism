@@ -78,7 +78,7 @@ export default function Technology() {
                                 {currentTechnology?.name}
                             </p>
                         </div>
-                        <p className="text-[15px] lg:text-lg leading-8 text-blue-300 lg:max-w-2/3">
+                        <p className="text-[15px] lg:text-lg leading-8 text-blue-300 2xl:max-w-2/3">
                             {currentTechnology?.description}
                         </p>
                     </div>
