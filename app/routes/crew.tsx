@@ -56,7 +56,7 @@ export default function Crew() {
                 className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-8 items-center w-full"
                 {...handlers}
             >
-                <div className="flex lg:flex-1/2 justify-center my-10 h-full">
+                <div className="flex lg:flex-1/2 justify-center my-10 h-full mt-20">
                     <div className="flex flex-col gap-10 lg:justify-between">
                         <div className="flex flex-col gap-6 text-center lg:text-left lg:h-full lg:justify-center">
                             <div className="uppercase">
