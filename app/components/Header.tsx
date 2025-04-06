@@ -35,7 +35,7 @@ export default function Header() {
 
     return (
         <header className="w-full flex items-center justify-between p-6 md:p-0 md:h-24">
-            <div className="flex items-center justify-center lg:justify-start px-10 lg:px-16 lg:flex-1/2">
+            <div className="flex items-center justify-center lg:justify-start md:px-10 lg:px-16 lg:flex-1/2">
                 <img
                     src="./assets/header/logo.svg"
                     className="h-10 w-10 lg:h-12 lg:w-12 object-contain"
