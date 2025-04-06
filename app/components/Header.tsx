@@ -11,7 +11,7 @@ function Menu() {
         <nav className="hidden md:flex items-end justify-end h-full bg-[#FFFFFF0E] backdrop-blur-3xl px-10 lg:px-16 flex-1/3 lg:flex-1/2">
             <ul className="flex gap-12 justify-end uppercase text-white font-sans-condensed tracking-wide">
                 {navItems.map((item) => (
-                    <li className="flex flex-col gap-8">
+                    <li key={item.key} className="flex flex-col gap-8">
                         <Link to={item.link} className="flex gap-3">
                             <p
                                 className={`font-bold ${item.link === "/" && currentPathname === "/" ? "hidden" : "block"}`}

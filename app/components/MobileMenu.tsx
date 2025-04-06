@@ -3,15 +3,18 @@ import { Link, useLocation } from "react-router";
 import { navItems } from "~/lib/constants";
 import { SideMenuContext } from "~/providers/SideMenuProvider";
 import { useContext } from "react";
+import useClickOutside from "~/hooks/useClickOutside";
 
 export default function MobileMenu() {
     const currentPathname = useLocation().pathname;
     const { isOpened, setIsOpened } = useContext(SideMenuContext);
+    const ref = useClickOutside(() => setIsOpened(false));
 
     return createPortal(
         <nav
             className={`min-w-[80vw] min-h-screen absolute right-0 backdrop-blur-3xl pl-8 z-999 ${isOpened ? "block" : "hidden"}`}
             style={{ top: `${window.pageYOffset}px` }}
+            ref={ref}
         >
             <div className="flex justify-end py-8 mr-8 mb-8">
                 <img

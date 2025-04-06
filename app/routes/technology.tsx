@@ -71,7 +71,7 @@ export default function Technology() {
                     </div>
                     <div className="flex flex-col gap-6 text-center lg:text-left">
                         <div className="uppercase">
-                            <p className="font-serif text-lg md:text-xl text-white opacity-50 mb-4">
+                            <p className="font-serif text-lg md:text-xl lg:text-[32px] text-white opacity-50 mb-4">
                                 The Terminology...
                             </p>
                             <p className="font-serif text-white text-2xl md:text-[40px] lg:text-[56px]">

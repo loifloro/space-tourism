@@ -9,7 +9,7 @@ type PageHeading = {
 export default function PageHeading({ title, number, classname }: PageHeading) {
     return (
         <div
-            className={`flex justify-center md:justify-start gap-6 ${classname}`}
+            className={`flex justify-center md:justify-start gap-6 lg:text-[28px] ${classname}`}
         >
             <span className="font-bold font-sans-condensed opacity-25 text-white tracking-widest">
                 {number}
