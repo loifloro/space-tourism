@@ -44,7 +44,7 @@ export default function Destination() {
                 number="01"
                 classname="mb-6 md:text-xl"
             />
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:min-w-full lg:my-10">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto w-full md:w-4/5 lg:w-full lg:my-10">
                 <div className="flex flex-1 items-center justify-center my-7 md:my-12 lg:my-4">
                     {currentDestination && !isLoading ? (
                         <img
@@ -61,7 +61,7 @@ export default function Destination() {
                         />
                     )}
                 </div>
-                <div className="flex flex-col items-center lg:items-start justify-center gap-6 lg:gap-10 flex-1 lg:max-w-11/12 mx-auto">
+                <div className="flex flex-col items-center lg:items-start justify-center gap-6 lg:gap-10 flex-1 w-full lg:w-11/12 mx-auto">
                     <div className="flex gap-8 items-start">
                         {destinations.map((dest) => (
                             <button
