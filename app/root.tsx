@@ -63,10 +63,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Meta />
                 <Links />
             </head>
-            <SkeletonTheme baseColor="#1B2234" highlightColor="#10141F">
+            <SkeletonTheme
+                baseColor="#1B2234"
+                highlightColor="#10141F"
+                duration={2}
+            >
                 <SideMenuProvider value={{ isOpened, setIsOpened }}>
                     <body
-                        className={`${isOpened ? "overflow-hidden" : "overflow-auto"}`}
+                        className={`bg-blue-900 ${isOpened ? "overflow-hidden" : "overflow-auto"}`}
                     >
                         {children}
                         <ScrollRestoration />
@@ -82,9 +86,10 @@ export default function App() {
     return <Outlet />;
 }
 
-export function HydrateFallback() {
-    return <>Loading...</>;
-}
+// @todo Add design for hydration fallback
+// export function HydrateFallback() {
+//     return <>Loading...</>;
+// }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     let message = "Oops!";

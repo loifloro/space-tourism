@@ -44,7 +44,7 @@ export default function Destination() {
                 number="01"
                 classname="mb-6 md:text-xl"
             />
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:max-w-full lg:my-10">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto md:max-w-4/5 lg:min-w-full lg:my-10">
                 <div className="flex flex-1 items-center justify-center my-7 md:my-12 lg:my-4">
                     {currentDestination && !isLoading ? (
                         <img
@@ -53,7 +53,12 @@ export default function Destination() {
                             className="w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:h-[480px] lg:w-[480px] drop-shadow-lg object-contain"
                         />
                     ) : (
-                        <Skeleton width={150} height={150} circle />
+                        <Skeleton
+                            circle
+                            containerClassName="block w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:h-[480px] lg:w-[480px] drop-shadow-lg"
+                            className="w-full h-full"
+                            inline={true}
+                        />
                     )}
                 </div>
                 <div className="flex flex-col items-center lg:items-start justify-center gap-6 lg:gap-10 flex-1 lg:max-w-11/12 mx-auto">
@@ -84,12 +89,16 @@ export default function Destination() {
                             </button>
                         ))}
                     </div>
-                    <div className="text-center lg:text-left">
+                    <div className="text-center lg:text-left w-full">
                         <h3 className="uppercase text-[56px] md:text-[80px] tracking-wider leading-20 md:leading-[91px] font-serif text-white font-normal">
-                            {currentDestination?.name}
+                            {currentDestination?.name || (
+                                <Skeleton className="h-full" width="50%" />
+                            )}
                         </h3>
                         <p className="text-[15px] lg:text-lg leading-8 text-blue-300">
-                            {currentDestination?.description}
+                            {currentDestination?.description || (
+                                <Skeleton className="h-full w-full" count={4} />
+                            )}
                         </p>
                     </div>
                     <hr className="border-[#979797] border-[0.5px] block w-full" />
@@ -99,7 +108,9 @@ export default function Destination() {
                                 Avg. Distance
                             </div>
                             <div className="text-3xl text-white font-serif">
-                                {currentDestination?.distance}
+                                {currentDestination?.distance || (
+                                    <Skeleton className="h-full" width="50%" />
+                                )}
                             </div>
                         </div>
                         <div className="flex flex-1/2 flex-col gap-3">
@@ -107,7 +118,9 @@ export default function Destination() {
                                 Est. Travel Time
                             </div>
                             <div className="text-3xl text-white font-serif">
-                                {currentDestination?.travel}
+                                {currentDestination?.travel || (
+                                    <Skeleton className="h-full" width="50%" />
+                                )}
                             </div>
                         </div>
                     </div>
