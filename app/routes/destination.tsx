@@ -7,13 +7,10 @@ export default function Destination() {
     const [currentDestination, setCurrentDestination] = useState<Destination>();
     const [destinations, setDestinations] = useState<Destination[]>([]);
     const [selectedDestination, setSelectedDestination] = useState("Moon");
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setIsLoading(true);
-
                 const destinations = (await axios.get<Data>("data.json")).data[
                     "destinations"
                 ];
@@ -25,8 +22,6 @@ export default function Destination() {
                         (dest) => dest.name === selectedDestination
                     )
                 );
-
-                setIsLoading(false);
             } catch (error: any) {
                 // @todo add error handling
 
@@ -46,7 +41,7 @@ export default function Destination() {
             />
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mx-auto w-full md:w-4/5 lg:w-full lg:my-10">
                 <div className="flex flex-1 items-center justify-center my-7 md:my-12 lg:my-4">
-                    {currentDestination && !isLoading ? (
+                    {currentDestination ? (
                         <img
                             src={`./assets/destination/image-${currentDestination?.name.toLowerCase()}.webp`}
                             alt={currentDestination?.description}

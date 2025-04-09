@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import axios from "axios";
 import PageHeading from "~/components/PageHeading";
+import Skeleton from "react-loading-skeleton";
 
 export default function Crew() {
     const [currentCrew, setCurrentCrew] = useState<Crew>();
     const [crews, setCrews] = useState<Crew[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
     const handlers = useSwipeable({
         onSwipedLeft: () => {
             if (currentIndex < crews.length - 1) {
@@ -26,15 +26,10 @@ export default function Crew() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setIsLoading(true);
-
                 const crews = (await axios.get<Data>("data.json")).data["crew"];
 
                 setCrews(crews);
-
                 setCurrentCrew(crews[currentIndex]);
-
-                setIsLoading(false);
             } catch (error: any) {
                 // @todo add error handling
 
@@ -56,19 +51,31 @@ export default function Crew() {
                 className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-8 items-center w-full"
                 {...handlers}
             >
-                <div className="flex lg:flex-1/2 justify-center my-10 h-full mt-20">
-                    <div className="flex flex-col gap-10 lg:justify-between">
+                <div className="flex lg:flex-1/2 justify-center my-10 h-full mt-20 w-full">
+                    <div className="flex flex-col gap-10 lg:justify-between w-full">
                         <div className="flex flex-col gap-6 text-center lg:text-left lg:h-full lg:justify-center">
                             <div className="uppercase">
                                 <div className="font-serif text-lg md:text-xl lg:text-[32px] text-white opacity-50">
-                                    {currentCrew?.role}
+                                    {currentCrew?.role || (
+                                        <Skeleton
+                                            className="h-full"
+                                            width="50%"
+                                        />
+                                    )}
                                 </div>
                                 <div className="font-serif text-white text-2xl md:text-[40px] lg:text-[56px]">
-                                    {currentCrew?.name}
+                                    {currentCrew?.name || (
+                                        <Skeleton
+                                            className="h-full"
+                                            width="80%"
+                                        />
+                                    )}
                                 </div>
                             </div>
-                            <div className="text-blue-300 text-[15px] lg:text-lg leading-7">
-                                {currentCrew?.bio}
+                            <div className="text-blue-300 text-[15px] lg:w-full lg:text-lg leading-7">
+                                {currentCrew?.bio || (
+                                    <Skeleton className="w-full" count={3} />
+                                )}
                             </div>
                         </div>
                         <div className="flex justify-center lg:justify-start gap-4 lg:gap-10 lg:mb-12">
@@ -86,10 +93,18 @@ export default function Crew() {
                 </div>
                 <div className="flex justify-center lg:flex-1/2">
                     <div className="relative">
-                        <img
-                            src={`./assets/crew/image-${currentCrew?.name.toLowerCase().replace(" ", "-")}.webp`}
-                            className="lg:object-contain"
-                        />
+                        {currentCrew ? (
+                            <img
+                                src={`./assets/crew/image-${currentCrew?.name.toLowerCase().replace(" ", "-")}.webp`}
+                                className="lg:object-contain"
+                            />
+                        ) : (
+                            <Skeleton
+                                containerClassName="block w-[300px] h-[400px] lg:h-[700px] lg:w-[480px] drop-shadow-lg"
+                                className="w-full h-full"
+                                inline={true}
+                            />
+                        )}
                         <div className="w-full h-full -translate-y-[99%] -mb-2 absolute bg-linear-[to_bottom,#0C0E1600_77%,#0C0E16_100%] "></div>
                     </div>
                 </div>
